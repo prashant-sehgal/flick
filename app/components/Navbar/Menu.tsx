@@ -8,7 +8,7 @@ import NavList from './NavList'
 import NavLink from './NavLink'
 
 export default function Menu() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   //   this effect will automatically turn off menu when screen width increased more than 750px
   useEffect(function () {
