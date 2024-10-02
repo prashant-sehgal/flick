@@ -20,26 +20,23 @@ interface Movie {
 }
 
 export default function page({ params }: Props) {
-  const [isDisplayVertical, setIsDisplayVertical] = useState(
-    window.innerWidth < window.innerHeight
-  )
+  const [isDisplayVertical, setIsDisplayVertical] = useState<boolean>(false)
   const [movie, setMovie] = useState<Movie>()
 
   //   this effect will sync display orientation vertical or horizontal with isDisplay vertical state
-  useEffect(
-    function () {
-      function handleResize() {
-        setIsDisplayVertical(window.innerWidth < window.innerHeight)
-      }
-      window.addEventListener('resize', handleResize)
+  useEffect(function () {
+    function handleResize() {
+      setIsDisplayVertical(window.innerWidth < window.innerHeight)
+    }
+    // running handleResize on initial render
+    handleResize()
+    window.addEventListener('resize', handleResize)
 
-      //   clean up
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    },
-    [window]
-  )
+    //   clean up
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   // dummy movie loading effect
   useEffect(function () {
