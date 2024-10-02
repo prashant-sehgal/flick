@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
+import 'remixicon/fonts/remixicon.css'
 
 const open_sans = Open_Sans({
-  weight: ['400'],
+  weight: ['400', '600'],
   subsets: ['latin'],
   variable: '--font-open-sans',
 })

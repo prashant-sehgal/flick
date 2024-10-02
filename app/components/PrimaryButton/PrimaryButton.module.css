@@ -1,0 +1,12 @@
+.primaryButton {
+  background: #fff;
+  border: none;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 150ms;
+}
+
+.primaryButton:hover {
+  background: #ccc;
+}
