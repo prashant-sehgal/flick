@@ -19,3 +19,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Vercel hosted link
+Open [Flick Online](https://flick-black.vercel.app) with your browser to see the result.
