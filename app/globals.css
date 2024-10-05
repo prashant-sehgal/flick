@@ -13,3 +13,20 @@ button,
 input {
   font-family: var(--font-open-sans);
 }
+
+/* Ensure the navigation arrows are white */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  transform: scale(0.6);
+}
+
+/* Ensure the pagination bullets are white */
+.swiper-pagination-bullet {
+  background-color: white !important;
+}
+
+/* Optional: Change the active pagination bullet color */
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}

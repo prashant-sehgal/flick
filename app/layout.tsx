@@ -5,7 +5,7 @@ import './globals.css'
 import 'remixicon/fonts/remixicon.css'
 
 const open_sans = Open_Sans({
-  weight: ['400', '600'],
+  weight: ['400', '600', '800'],
   subsets: ['latin'],
   variable: '--font-open-sans',
 })
