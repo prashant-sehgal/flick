@@ -1,5 +1,4 @@
-import styles from './page.module.css'
-import Navbar from './components/Navbar/Navbar'
+import NavLayout from './components/layouts/NavLayout'
 import Carousel from './components/Carousel/Carousel'
 import MoviesGroup from './components/MoviesGroup/MoviesGroup'
 
@@ -26,32 +25,29 @@ export default function Home() {
     },
   ]
   return (
-    <div className={styles.page}>
-      <Navbar />
-      <div className={styles.container}>
-        <Carousel movies={movies} />
-        <MoviesGroup
-          title="Must-Watch Masterpieces"
-          subString="The Highest Rated Movies That Everyone’s Talking About!"
-          movies={Array.from({ length: 10 }, () =>
-            Math.floor(Math.random() * 100)
-          )}
-        />
-        <MoviesGroup
-          title="Fresh Flicks"
-          subString="Discover the Hottest New Movies Straight from the Reel!"
-          movies={Array.from({ length: 10 }, () =>
-            Math.floor(Math.random() * 100)
-          )}
-        />
-        <MoviesGroup
-          title="Viewer’s Paradise"
-          subString="Dive into the Best Movies with Top IMDb Scores!"
-          movies={Array.from({ length: 10 }, () =>
-            Math.floor(Math.random() * 100)
-          )}
-        />
-      </div>
-    </div>
+    <NavLayout>
+      <Carousel movies={movies} />
+      <MoviesGroup
+        title="Must-Watch Masterpieces"
+        subString="The Highest Rated Movies That Everyone’s Talking About!"
+        movies={Array.from({ length: 10 }, () =>
+          Math.floor(Math.random() * 100)
+        )}
+      />
+      <MoviesGroup
+        title="Fresh Flicks"
+        subString="Discover the Hottest New Movies Straight from the Reel!"
+        movies={Array.from({ length: 10 }, () =>
+          Math.floor(Math.random() * 100)
+        )}
+      />
+      <MoviesGroup
+        title="Viewer’s Paradise"
+        subString="Dive into the Best Movies with Top IMDb Scores!"
+        movies={Array.from({ length: 10 }, () =>
+          Math.floor(Math.random() * 100)
+        )}
+      />
+    </NavLayout>
   )
 }
