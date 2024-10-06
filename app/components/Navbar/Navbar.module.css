@@ -48,7 +48,7 @@
 }
 
 .search input {
-  background: #1a1a1a;
+  background: #151515;
   border: 0.1rem solid #000;
   width: 17rem;
   height: 2rem;
@@ -60,11 +60,11 @@
 }
 
 .search input:hover {
-  background: #1e1e1e;
+  background: #232323;
 }
 
 .search input:focus {
-  background: #212121;
+  background: #303030;
   border: 0.1rem solid #ccc;
 }
 
