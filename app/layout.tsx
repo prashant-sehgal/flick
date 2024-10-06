@@ -3,6 +3,9 @@ import { Open_Sans } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import 'remixicon/fonts/remixicon.css'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const open_sans = Open_Sans({
   weight: ['400', '600', '800'],

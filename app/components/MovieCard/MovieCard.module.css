@@ -4,11 +4,10 @@
   width: 10rem;
   border-radius: 0.5rem;
   overflow: hidden;
-  transition: all 150ms ease;
 }
 
-.movieCard:hover {
-  transform: scale(1.1);
+.movieCard:hover img {
+  transform: scale(1.2);
 }
 
 .movieCard:hover .overlay {
@@ -17,6 +16,7 @@
 
 .movieCard img {
   width: 100%;
+  transition: all 150ms ease;
 }
 
 .overlay {
@@ -29,6 +29,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
+  background-color: #0000004a;
   transition: all 150ms ease;
 }
 
