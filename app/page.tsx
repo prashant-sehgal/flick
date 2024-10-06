@@ -32,21 +32,21 @@ export default function Home() {
         <Carousel movies={movies} />
         <MoviesGroup
           title="Must-Watch Masterpieces"
-          subTitle="The Highest Rated Movies That Everyone’s Talking About!"
+          subString="The Highest Rated Movies That Everyone’s Talking About!"
           movies={Array.from({ length: 10 }, () =>
             Math.floor(Math.random() * 100)
           )}
         />
         <MoviesGroup
           title="Fresh Flicks"
-          subTitle="Discover the Hottest New Movies Straight from the Reel!"
+          subString="Discover the Hottest New Movies Straight from the Reel!"
           movies={Array.from({ length: 10 }, () =>
             Math.floor(Math.random() * 100)
           )}
         />
         <MoviesGroup
           title="Viewer’s Paradise"
-          subTitle="Dive into the Best Movies with Top IMDb Scores!"
+          subString="Dive into the Best Movies with Top IMDb Scores!"
           movies={Array.from({ length: 10 }, () =>
             Math.floor(Math.random() * 100)
           )}

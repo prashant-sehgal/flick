@@ -5,21 +5,19 @@ import { Navigation } from 'swiper/modules'
 import styles from './MoviesGroup.module.css'
 import MovieCard from '../MovieCard/MovieCard'
 import { useScreenStatus } from '@/app/contexts/ScreeStatusContext'
+import Title from './Title'
 
 interface Props {
   title: string
-  subTitle: string
+  subString: string
   movies: any[]
 }
 
-export default function MoviesGroup({ title, subTitle, movies }: Props) {
+export default function MoviesGroup({ title, subString, movies }: Props) {
   const { width } = useScreenStatus()
   return (
     <div className={styles.moviesGroup}>
-      <p className={styles.titleContainer}>
-        <span className={styles.title}> {title}</span> :{' '}
-        <span className={styles.sub}>{subTitle}</span>
-      </p>
+      <Title title={title} subString={subString} />
       <Swiper
         modules={[Navigation]}
         spaceBetween={10}
@@ -27,13 +25,7 @@ export default function MoviesGroup({ title, subTitle, movies }: Props) {
         navigation={width && width > 750 ? true : false}
       >
         {movies.map((movie, i) => (
-          <SwiperSlide
-            key={Math.random()}
-            style={{
-              width: 'auto' /* Let Swiper decide the width */,
-              flexShrink: 0 /* Prevent shrinking */,
-            }}
-          >
+          <SwiperSlide key={Math.random()} className={styles.slide}>
             <MovieCard />
           </SwiperSlide>
         ))}

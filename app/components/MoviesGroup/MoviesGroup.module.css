@@ -2,6 +2,11 @@
   padding: 0.5rem 1rem;
 }
 
+.slide {
+  width: auto;
+  flex-shrink: 0;
+}
+
 .titleContainer {
   margin: 1rem 0rem;
 }
@@ -10,7 +15,7 @@
   font-weight: 600;
 }
 
-.sub {
+.subString {
   font-size: 0.9rem;
   color: #ccc;
 }

@@ -18,8 +18,6 @@ function ScreenStatusProvider({ children }: Props) {
   const [isDisplayVertical, setIsDisplayVertical] = useState(false)
   const [width, setWidth] = useState<number>()
 
-  console.log(width)
-
   //   this effect will sync display orientation vertical or horizontal with isDisplay vertical state
   useEffect(function () {
     function handleResize() {
