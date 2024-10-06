@@ -6,22 +6,18 @@ import Body from './Body'
 import Search from './Search'
 import NavList from './NavList'
 import NavLink from './NavLink'
+import { useScreenStatus } from '@/app/contexts/ScreeStatusContext'
 
 export default function Menu() {
+  const { width } = useScreenStatus()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  //   this effect will automatically turn off menu when screen width increased more than 750px
-  useEffect(function () {
-    function handleResize() {
-      if (window.innerWidth > 750) setIsMenuOpen(false)
-    }
-    window.addEventListener('resize', handleResize)
-
-    //   clean up
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  useEffect(
+    function () {
+      if (width && width > 750) setIsMenuOpen(false)
+    },
+    [width]
+  )
 
   return (
     <div className={styles.menu}>

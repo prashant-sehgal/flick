@@ -8,6 +8,7 @@ import {
   defaultLayoutIcons,
   DefaultVideoLayout,
 } from '@vidstack/react/player/layouts/default'
+import { useScreenStatus } from '@/app/contexts/ScreeStatusContext'
 
 interface Props {
   params: { movieId: string }
@@ -20,23 +21,8 @@ interface Movie {
 }
 
 export default function page({ params }: Props) {
-  const [isDisplayVertical, setIsDisplayVertical] = useState<boolean>(false)
+  const { isDisplayVertical } = useScreenStatus()
   const [movie, setMovie] = useState<Movie>()
-
-  //   this effect will sync display orientation vertical or horizontal with isDisplay vertical state
-  useEffect(function () {
-    function handleResize() {
-      setIsDisplayVertical(window.innerWidth < window.innerHeight)
-    }
-    // running handleResize on initial render
-    handleResize()
-    window.addEventListener('resize', handleResize)
-
-    //   clean up
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   // dummy movie loading effect
   useEffect(function () {

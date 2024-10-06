@@ -6,6 +6,7 @@ import 'remixicon/fonts/remixicon.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { ScreenStatusProvider } from './contexts/ScreeStatusContext'
 
 const open_sans = Open_Sans({
   weight: ['400', '600', '800'],
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={open_sans.className}>
-        {children}
+        <ScreenStatusProvider>{children}</ScreenStatusProvider>
         <SpeedInsights />
       </body>
     </html>

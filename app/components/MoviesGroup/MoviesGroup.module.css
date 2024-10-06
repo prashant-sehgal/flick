@@ -2,6 +2,15 @@
   padding: 0.5rem 1rem;
 }
 
-.title {
+.titleContainer {
   margin: 1rem 0rem;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.sub {
+  font-size: 0.9rem;
+  color: #ccc;
 }
