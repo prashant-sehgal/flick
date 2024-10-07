@@ -14,9 +14,10 @@ export default function Movie({ movie }: { movie: any }) {
         <Details>
           <p className={styles.title}>{movie.title}</p>
           <Highlights
-            releaseYear={movie.releaseYear}
-            genre={movie.genres[0]}
-            duration={movie.duration}
+            // releaseYear={movie.releaseYear}
+            // genre={movie.genres[0]}
+            // duration={movie.duration}
+            highlights={[movie.releaseYear, movie.genres[0], movie.duration]}
           />
           <p className={styles.desc}>{limitWords(movie.description, 16)}</p>
           <PrimaryButton onPress={() => null} height={2.4}>
