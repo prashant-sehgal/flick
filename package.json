@@ -1,0 +1,30 @@
+{
+  "name": "flick",
+  "version": "0.1.0",
+  "description": "A next-generation streaming platform offering a vast library of movies and TV shows.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0",
+    "@vidstack/react": "^1.12.12",
+    "axios": "^1.7.9",
+    "hamburger-react": "^2.5.2",
+    "next": "14.2.23",
+    "next-auth": "^4.24.11",
+    "react": "^18",
+    "react-dom": "^18",
+    "remixicon": "^4.6.0",
+    "swiper": "^11.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}

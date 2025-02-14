@@ -1,0 +1,17 @@
+.primaryAction {
+  text-decoration: none;
+  border: none;
+  color: #000;
+  background: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.primaryAction:hover {
+  background: #ccc;
+}
