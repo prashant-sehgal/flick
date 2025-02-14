@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 // vidstack styles
@@ -32,7 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={openSans.variable}>{children}</body>
+      <body className={openSans.variable}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   )
 }
