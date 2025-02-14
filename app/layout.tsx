@@ -6,8 +6,16 @@ import './globals.css'
 import '@vidstack/react/player/styles/default/theme.css'
 import '@vidstack/react/player/styles/default/layouts/video.css'
 
+// remixicons styles
+import 'remixicon/fonts/remixicon.css'
+
+// swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+
 const openSans = Open_Sans({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
   variable: '--font-open-sans',
 })
 

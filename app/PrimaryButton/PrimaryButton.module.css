@@ -1,0 +1,15 @@
+.primaryButton {
+  background: var(--highlight-color);
+  color: var(--background-color);
+  border: none;
+  width: 5rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: ease 100ms;
+  font-weight: 500;
+}
+
+.primaryButton:hover {
+  background: var(--highlight-off-color);
+}

@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 1rem;
+  width: 100%;
+  background: var(--background-color);
+  position: sticky;
+  top: 0;
+}
+
+.navlist {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navlink {
+  transition: ease 100ms;
+  color: var(--font-color);
+}
+
+.navlink:hover,
+.navlink.active {
+  color: var(--highlight-color);
+}
+
+@media (max-width: 40rem) {
+  .navlink.wide {
+    display: none;
+  }
+}
