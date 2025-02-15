@@ -1,4 +1,3 @@
-import Movie from '@/app/@types/Movie'
 import React from 'react'
 import styles from './MoviesListView.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
