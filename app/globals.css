@@ -12,6 +12,9 @@
   --highlight-color: #f5c518;
   --highlight-off-color: #cea616;
   --background-color: #14171f;
+  --background-off-color: #262c3b;
+  --background-off-hover-color: #30384a;
+  --background-light-color: #595f71;
 }
 
 body {
