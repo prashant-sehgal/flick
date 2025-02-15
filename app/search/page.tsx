@@ -4,17 +4,10 @@ import styles from './page.module.css'
 import SearchForm from './SearchForm'
 import EdgeButton from '../components/EdgeButton/EdgeButton'
 import MoviesListView from '../components/MoviesListView/MoviesListView'
-import Loading from './Loading'
 
 export default function page() {
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
-
-  useEffect(function () {
-    setTimeout(function () {
-      setLoading(false)
-    }, 2000)
-  }, [])
 
   return (
     <div className={styles.page}>
@@ -27,8 +20,8 @@ export default function page() {
         <EdgeButton onPress={() => ''}>Comedy</EdgeButton>
         <EdgeButton onPress={() => ''}>Fantasy</EdgeButton>
       </div>
-      {loading ? <Loading /> : <MoviesListView title="Results" movies={[]} />}
-      <MoviesListView title="Your Perfect Picks" movies={[]} />
+      <MoviesListView title="Results" movies={[0]} />
+      <MoviesListView title="Your Perfect Picks" movies={[0]} />
     </div>
   )
 }

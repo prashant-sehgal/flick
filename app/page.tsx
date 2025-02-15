@@ -12,9 +12,9 @@ export default function Home() {
     <HomeLayout>
       <div className={styles.page}>
         <Carousel />
-        <MoviesListView title="Latest Releases" movies={[]} />
-        <MoviesListView title="Top Rated On IMDb" movies={[]} />
-        <MoviesListView title="Your Perfect Picks" movies={[]} />
+        <MoviesListView title="Latest Releases" movies={[0]} />
+        <MoviesListView title="Top Rated On IMDb" movies={[0]} />
+        <MoviesListView title="Your Perfect Picks" movies={[0]} />
       </div>
     </HomeLayout>
   )
