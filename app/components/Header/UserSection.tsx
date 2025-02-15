@@ -1,5 +1,5 @@
 'use client'
-import PrimaryButton from '@/app/PrimaryButton/PrimaryButton'
+import PrimaryButton from '@/app/components/PrimaryButton/PrimaryButton'
 import React from 'react'
 
 export default function UserSection() {

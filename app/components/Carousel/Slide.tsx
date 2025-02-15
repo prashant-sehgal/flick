@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Carousel.module.css'
-import PrimaryButton from '@/app/PrimaryButton/PrimaryButton'
+import PrimaryButton from '@/app/components/PrimaryButton/PrimaryButton'
 import Overlay from './Overlay'
 import Container from './Container'
 

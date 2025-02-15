@@ -1,0 +1,10 @@
+.moviesListView {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* .moviesListView p {
+  font-weight: 800;
+} */

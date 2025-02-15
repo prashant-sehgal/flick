@@ -7,7 +7,6 @@ import Slide from './Slide'
 export default function Carousel() {
   return (
     <Swiper
-      cssMode={true}
       modules={[Pagination, Autoplay]}
       pagination={{
         clickable: true,

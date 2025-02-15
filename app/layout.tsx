@@ -13,6 +13,7 @@ import 'remixicon/fonts/remixicon.css'
 // swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
