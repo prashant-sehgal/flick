@@ -17,6 +17,7 @@ import 'swiper/css/navigation'
 
 // react loading skeleton
 import 'react-loading-skeleton/dist/skeleton.css'
+import AuthProvider from './AuthProvider'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.variable}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
         <SpeedInsights />
       </body>
     </html>

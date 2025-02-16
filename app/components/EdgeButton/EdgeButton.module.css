@@ -5,6 +5,9 @@
   color: #fff;
   cursor: pointer;
   transition: 100ms ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .edgeButton:hover {
