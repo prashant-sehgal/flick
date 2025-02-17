@@ -18,7 +18,6 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .movie {
@@ -75,4 +74,17 @@
 
 .actions > *:nth-child(even):hover {
   background: #ccc;
+}
+
+@media (max-width: 40rem) {
+  .actions {
+    flex-direction: column;
+  }
+  .movie {
+    padding: 2rem;
+    font-size: 0.8rem;
+  }
+  .movie .title {
+    font-size: 2.5rem;
+  }
 }
