@@ -10,7 +10,12 @@ export default function UserSection() {
 
   if (session && session.user && session.user.image)
     return (
-      <EdgeButton width={5.5} height={2} onPress={() => signOut()}>
+      <EdgeButton
+        width={5.5}
+        height={2}
+        onPress={() => signOut()}
+        style={{ justifyContent: 'flex-start' }}
+      >
         <Image src={session.user.image} alt="user-img" width={30} height={30} />
         Logout
       </EdgeButton>
