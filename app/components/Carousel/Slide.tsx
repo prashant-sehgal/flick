@@ -15,7 +15,7 @@ export default function Slide() {
             With Spider-Man's identity now revealed, Peter asks Doctor Strange
             for help. When a spell goes wrong...
           </p>
-          <PrimaryButton onPress={() => ''}>Explore</PrimaryButton>
+          <PrimaryButton href="/movies/movie">Explore</PrimaryButton>
         </Container>
       </Overlay>
       <img src="tWBCzb.webp" alt="slide-image" />

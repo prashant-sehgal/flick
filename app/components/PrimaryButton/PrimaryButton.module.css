@@ -8,6 +8,9 @@
   cursor: pointer;
   transition: ease 100ms;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .primaryButton:hover {
