@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './MovieCard.module.css'
 import Link from 'next/link'
+import Movie from '@/app/types/Movie'
 
 interface Props {
   width?: number
+  movie: Movie
 }
 
 export default function MovieCard(props: Readonly<Props>) {
@@ -13,11 +15,11 @@ export default function MovieCard(props: Readonly<Props>) {
   return (
     <div className={styles.movieCard} style={style}>
       <div className={styles.overlay}>
-        <Link href="/movies">
+        <Link href={`/movies/${props.movie.id}`}>
           <i className="ri-play-large-fill"></i>
         </Link>
       </div>
-      <img src="/card-206358-1739516455474.webp" alt="movie-card" />
+      <img src={props.movie.cardUrl} alt="movie-card" />
     </div>
   )
 }

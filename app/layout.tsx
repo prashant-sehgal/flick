@@ -18,6 +18,8 @@ import 'swiper/css/navigation'
 // react loading skeleton
 import 'react-loading-skeleton/dist/skeleton.css'
 import AuthProvider from './AuthProvider'
+import MoviesProvider from './contexts/MoviesContext'
+import WatchListProvider from './contexts/WatchListContext'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -39,7 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.variable}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <MoviesProvider>
+            <WatchListProvider>{children}</WatchListProvider>
+          </MoviesProvider>
+        </AuthProvider>
         <SpeedInsights />
       </body>
     </html>

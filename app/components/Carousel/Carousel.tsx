@@ -1,10 +1,16 @@
-'use client'
 import React from 'react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Slide from './Slide'
+import { useMovies } from '@/app/contexts/MoviesContext'
+import Loading from './Loading'
 
 export default function Carousel() {
+  const { getFeaturedMovies } = useMovies()
+  const movies = getFeaturedMovies()
+
+  if (!movies) return <Loading />
+
   return (
     <Swiper
       modules={[Pagination, Autoplay]}
@@ -20,24 +26,12 @@ export default function Carousel() {
       //   spaceBetween={8}
       slidesPerView={1}
     >
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
+      {movies &&
+        movies.map((movie) => (
+          <SwiperSlide key={movie.id}>
+            <Slide movie={movie} />
+          </SwiperSlide>
+        ))}
     </Swiper>
   )
 }

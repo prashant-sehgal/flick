@@ -5,66 +5,30 @@ import { SwiperSlide } from 'swiper/react'
 import MovieCard from '../MovieCard/MovieCard'
 import Loading from './Loading'
 import SliderProvider from './SliderProvider'
+import Movie from '@/app/types/Movie'
 
 interface Props {
   title: string
-  movies: any[]
+  movies: Movie[] | undefined
 }
 
 export default function MoviesListView(props: Readonly<Props>) {
   return (
     <div className={styles.moviesListView}>
-      <h3>{props.title}</h3>
-      {props.movies && props.movies.length > 0 ? (
-        <SliderProvider>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
-        </SliderProvider>
+      {!props.movies && <Loading />}
+      {props.movies && props.movies.length ? (
+        <>
+          <h3>{props.title}</h3>
+          <SliderProvider>
+            {props.movies.map((movie) => (
+              <SwiperSlide key={movie.id}>
+                <MovieCard movie={movie} />
+              </SwiperSlide>
+            ))}
+          </SliderProvider>
+        </>
       ) : (
-        <Loading />
+        ''
       )}
     </div>
   )

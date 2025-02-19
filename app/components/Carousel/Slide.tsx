@@ -3,22 +3,30 @@ import styles from './Carousel.module.css'
 import PrimaryButton from '@/app/components/PrimaryButton/PrimaryButton'
 import Overlay from './Overlay'
 import Container from './Container'
+import Movie from '@/app/types/Movie'
+import limitString from '@/app/utils/limitString'
 
-export default function Slide() {
+interface Props {
+  movie: Movie
+}
+
+export default function Slide(props: Readonly<Props>) {
   return (
     <div className={styles.slide}>
       <Overlay>
         <Container>
-          <h2>Spider-Man: No Way Home </h2>
-          <p>2021 ‧ Action/Sci-fi</p>
+          <h2>{props.movie.title}</h2>
           <p>
-            With Spider-Man's identity now revealed, Peter asks Doctor Strange
-            for help. When a spell goes wrong...
+            {props.movie.releasedYear} ‧ {props.movie.genres[0]}/
+            {props.movie.genres[1]}
           </p>
-          <PrimaryButton href="/movies/movie">Explore</PrimaryButton>
+          <p>{limitString(props.movie.description, 95)}</p>
+          <PrimaryButton href={`/movies/${props.movie.id}`}>
+            Explore
+          </PrimaryButton>
         </Container>
       </Overlay>
-      <img src="tWBCzb.webp" alt="slide-image" />
+      <img src={props.movie.posterUrl} alt="slide-image" />
     </div>
   )
 }

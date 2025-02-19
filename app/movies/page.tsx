@@ -4,26 +4,31 @@ import HomeLayout from '../components/HomeLayout/HomeLayout'
 import Loading from '../components/MoviesListView/Loading'
 import styles from './page.module.css'
 import MoviesListView from '../components/MoviesListView/MoviesListView'
+import { useMovies } from '../contexts/MoviesContext'
 
 export default function page() {
-  const [movies, setMovies] = useState<any>([])
-  useEffect(function () {
-    setTimeout(function () {
-      setMovies([...movies, { title: 'hello' }])
-    }, 2000)
-  }, movies)
+  const { getLatestMovies, getTopIMDbMovies, getGenre } = useMovies()
 
   return (
     <HomeLayout>
       <div className={styles.page}>
-        <MoviesListView title="New Releases" movies={movies} />
-        <MoviesListView title="Top Rated On IMDb" movies={movies} />
-        <MoviesListView title="Action Unleashed" movies={movies} />
-        <MoviesListView title="Grand Adventures" movies={movies} />
-        <MoviesListView title="Beyond Reality" movies={movies} />
-        <MoviesListView title="Laugh Riot" movies={movies} />
-        <MoviesListView title="Magical Fantasy Realms" movies={movies} />
-        <MoviesListView title="Drama that Hits Hard" movies={movies} />
+        <MoviesListView title="New Releases" movies={getLatestMovies()} />
+        <MoviesListView title="Top Rated On IMDb" movies={getTopIMDbMovies()} />
+        <MoviesListView title="Action Unleashed" movies={getGenre('action')} />
+        <MoviesListView
+          title="Grand Adventures"
+          movies={getGenre('adventure')}
+        />
+        <MoviesListView title="Beyond Reality" movies={getGenre('sci-fi')} />
+        <MoviesListView title="Laugh Riot" movies={getGenre('comedy')} />
+        <MoviesListView
+          title="Magical Fantasy Realms"
+          movies={getGenre('fantasy')}
+        />
+        <MoviesListView
+          title="Drama that Hits Hard"
+          movies={getGenre('drama')}
+        />
       </div>
     </HomeLayout>
   )
