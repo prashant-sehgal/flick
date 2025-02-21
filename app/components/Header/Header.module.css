@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background: var(--background-color);
+  z-index: 99;
+}
+
+.header .navlist {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header .navlist .navlink {
+  color: var(--secondary-text-color);
+  transition: 100ms ease;
+}
+
+.header .navlist .navlink.search {
+  color: var(--primary-text-color);
+  font-size: 1.2rem;
+}
+
+.header .navlist .navlink:hover,
+.header .navlist .navlink.active {
+  color: var(--highlight-color);
+}
+
+@media (max-width: 600px) {
+  .navlist .navlink {
+    display: none;
+  }
+
+  .navlist .navlink.search {
+    display: block;
+  }
+}

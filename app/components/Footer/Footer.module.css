@@ -1,0 +1,26 @@
+.footer {
+  padding: 1rem;
+  background: var(--background-color);
+  position: sticky;
+  bottom: 0;
+  display: none;
+  justify-content: space-around;
+  z-index: 99;
+}
+
+.footer .navlink {
+  color: var(--secondary-text-color);
+  font-size: 1.4rem;
+  transition: 100ms ease;
+}
+
+.footer .navlink:hover,
+.footer .navlink.active {
+  color: var(--highlight-color);
+}
+
+@media (max-width: 600px) {
+  .footer {
+    display: flex;
+  }
+}

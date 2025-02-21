@@ -1,0 +1,14 @@
+.primaryAction {
+  background: var(--highlight-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background-color);
+  cursor: pointer;
+  transition: ease 100ms;
+}
+
+.primaryAction:hover {
+  background: var(--highlight-dark-color);
+}

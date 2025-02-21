@@ -1,0 +1,7 @@
+.mediaPlayer {
+  display: flex;
+  height: 100vh;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+}
