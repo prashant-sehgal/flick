@@ -28,3 +28,9 @@ body {
 .swiper-pagination-bullet {
   background: #fff !important;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff !important;
+  transform: scale(0.6);
+}

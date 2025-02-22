@@ -1,0 +1,44 @@
+.movieCard {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.movieCard img {
+  width: 100%;
+  transition: ease 100ms;
+}
+
+.movieCard .overlay {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: ease 100ms;
+  background: #00000052;
+  z-index: 98;
+}
+
+.movieCard .overlay a {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+.overlay a i:hover {
+  filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+  opacity: 1;
+}
+
+.movieCard:hover .overlay {
+  opacity: 1;
+}
+
+.movieCard:hover img {
+  transform: scale(1.1);
+}
