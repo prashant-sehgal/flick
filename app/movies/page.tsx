@@ -9,6 +9,7 @@ export default function page() {
       <MovieListView title="Sci-Fi Spectacles" />
       <MovieListView title="Comedy Gold" />
       <MovieListView title="Adventure Awaits" />
+      <MovieListView title="Enchanted Realms" />
       <MovieListView title="Dramatic Masterpieces" />
     </div>
   )
