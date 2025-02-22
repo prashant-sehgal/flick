@@ -11,6 +11,14 @@ import 'remixicon/fonts/remixicon.css'
 import '@vidstack/react/player/styles/default/theme.css'
 import '@vidstack/react/player/styles/default/layouts/video.css'
 
+// swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
+// react loading skeleton
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const openSans = Open_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -33,8 +41,13 @@ export default function RootLayout({
       <body className={openSans.variable}>
         <Header />
         {children}
+        <HeightBuffer />
         <Footer />
       </body>
     </html>
   )
+}
+
+function HeightBuffer() {
+  return <div style={{ height: '4rem' }}></div>
 }

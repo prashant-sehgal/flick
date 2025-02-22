@@ -9,6 +9,7 @@
 :root {
   /* background colors */
   --background-color: #14171f;
+  --background-light-color: #262c3b;
 
   /* Accent colors */
   --highlight-color: #f5c518;
@@ -22,4 +23,8 @@
 body {
   background: var(--background-color);
   color: var(--primary-text-color);
+}
+
+.swiper-pagination-bullet {
+  background: #fff !important;
 }
