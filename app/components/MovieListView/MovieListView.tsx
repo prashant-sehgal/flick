@@ -10,10 +10,15 @@ import Loading from '@/app/components/Loading/Loading'
 interface Props {
   title: string
   movies?: Movie[]
+  spacing?: boolean
 }
 
 export default function MovieListView(props: Readonly<Props>) {
   const [isLoading, setIsLoading] = useState(true)
+
+  const style: React.CSSProperties = {
+    padding: props.spacing ? '1rem' : '0',
+  }
 
   useEffect(function () {
     setTimeout(function () {
@@ -22,7 +27,7 @@ export default function MovieListView(props: Readonly<Props>) {
   }, [])
 
   return (
-    <div className={styles.movieListView}>
+    <div className={styles.movieListView} style={style}>
       {isLoading ? (
         <Loading height={300} />
       ) : (

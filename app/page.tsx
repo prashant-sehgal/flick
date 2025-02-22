@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Carousel />
-      <MovieListView title="Latest Releases" />
-      <MovieListView title="Top Rated On IMDb" />
-      <MovieListView title="Your Perfect Picks" />
+      <MovieListView title="Latest Releases" spacing />
+      <MovieListView title="Top Rated On IMDb" spacing />
+      <MovieListView title="Your Perfect Picks" spacing />
     </div>
   )
 }
