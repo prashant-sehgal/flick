@@ -12,16 +12,18 @@ interface Props {
 
 export default function page(props: Readonly<Props>) {
   return (
-    <MediaPlayer
-      className={styles.mediaPlayer}
-      title="Sprite Fight"
-      src="https://files.vidstack.io/sprite-fight/720p.mp4"
-    >
-      <MediaProvider />
-      <DefaultVideoLayout
-        thumbnails="https://files.vidstack.io/sprite-fight/thumbnails.vtt"
-        icons={defaultLayoutIcons}
-      />
-    </MediaPlayer>
+    <div className={styles.mediaPlayer}>
+      <MediaPlayer
+        title="Sprite Fight"
+        src="https://files.vidstack.io/sprite-fight/720p.mp4"
+        autoPlay={true}
+      >
+        <MediaProvider />
+        <DefaultVideoLayout
+          thumbnails="https://files.vidstack.io/sprite-fight/thumbnails.vtt"
+          icons={defaultLayoutIcons}
+        />
+      </MediaPlayer>
+    </div>
   )
 }
