@@ -1,0 +1,81 @@
+.layout {
+  position: relative;
+  height: 100vh;
+  background: green;
+}
+
+.layout img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.layout .overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: #00000070;
+}
+
+.imdb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--highlight-color);
+  background: var(--background-color);
+  width: fit-content;
+  padding: 0 0.5rem 0 0;
+}
+
+.imdb img {
+  width: 3rem;
+}
+
+.imdb p {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 45rem;
+  padding: 4rem;
+}
+
+.page h1 {
+  font-size: 4rem;
+}
+
+.page p {
+  font-size: 0.9rem;
+}
+
+.page .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page .actions > *:nth-child(even) {
+  background: #fff;
+}
+
+.page .actions > *:nth-child(even):hover {
+  background: #ccc;
+}
+
+@media (max-width: 550px) {
+  .page {
+    padding: 0rem;
+  }
+
+  .layout .overlay {
+    gap: 2rem;
+  }
+}
