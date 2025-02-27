@@ -47,6 +47,7 @@
   gap: 1.5rem;
   max-width: 45rem;
   padding: 4rem;
+  text-transform: capitalize;
 }
 
 .page h1 {
