@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
-import PrimaryAction from '../PrimaryAction/PrimaryAction'
+import { useSession } from 'next-auth/react'
+import SignOut from './SignOut'
+import SignIn from './SignIn'
 
 export default function User() {
-  return (
-    <PrimaryAction onPress={() => null} width={5} height={2}>
-      Sign In
-    </PrimaryAction>
-  )
+  const { data: session } = useSession()
+  if (session) return <SignOut />
+  return <SignIn />
 }

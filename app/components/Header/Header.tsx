@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import BrandAnchor from './BrandAnchor'
 import styles from './Header.module.css'

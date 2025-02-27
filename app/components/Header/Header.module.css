@@ -30,6 +30,24 @@
   color: var(--highlight-color);
 }
 
+.logout {
+  width: 6rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  background: var(--background-light-color);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: ease 100ms;
+}
+
+.logout:hover {
+  border-color: var(--primary-text-color);
+}
+
 @media (max-width: 600px) {
   .navlist .navlink {
     display: none;
