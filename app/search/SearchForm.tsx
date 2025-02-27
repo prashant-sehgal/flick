@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import styles from './page.module.css'
 
 interface Props {
@@ -8,6 +8,11 @@ interface Props {
 
 export default function SearchForm(props: Readonly<Props>) {
   const [input, setInput] = useState('')
+  const inputElement = useRef<HTMLInputElement>()
+
+  useEffect(function () {
+    if (inputElement) inputElement.current?.focus()
+  }, [])
 
   return (
     <form action="">
@@ -15,6 +20,7 @@ export default function SearchForm(props: Readonly<Props>) {
         <i className="ri-arrow-left-s-line"></i>
       </Link>
       <input
+        ref={inputElement! as React.LegacyRef<HTMLInputElement>}
         type="text"
         value={input}
         placeholder="Search for movies, shows, genres, or actors and start your next streaming adventure!"

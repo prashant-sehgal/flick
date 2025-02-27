@@ -9,7 +9,7 @@ interface Props {
 
 export default function SliderProvider(props: Readonly<Props>) {
   const { width } = useLayout()
-  console.log(width)
+
   return (
     <div>
       <Swiper
