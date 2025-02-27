@@ -25,7 +25,7 @@ const authOptions: AuthOptions = {
     async signIn(params) {
       try {
         const response = await fetch(
-          `${process.env.API_URL}/api/v1/users/signin`,
+          `${process.env.NEXT_PUBLIC_API_URI}/api/v1/users/signin`,
           {
             method: 'POST',
             headers: {
