@@ -2,28 +2,29 @@ import React from 'react'
 import styles from './Carousel.module.css'
 import PrimaryAction from '../PrimaryAction/PrimaryAction'
 import limitString from '@/app/utils/limitString'
+import Movie from '@/app/types/Movie'
+import getPosterUri from '@/app/utils/getPosterUri'
 
-export default function Slide() {
+interface Props {
+  movie: Movie
+}
+
+export default function Slide(props: Readonly<Props>) {
   return (
     <div className={styles.slide}>
       <div className={styles.overlay}>
         <div className={styles.details}>
-          <h1>Avatar</h1>
-          <p>2021 ‧ Action/Adventure</p>
+          <h1>{props.movie.title}</h1>
           <p>
-            {limitString(
-              `A paraplegic Marine dispatched to the moon Pandora on a unique
-            mission becomes torn between following his orders and protecting the
-            world he feels is his home.`,
-              26
-            )}
+            {props.movie.releasedYear} ‧ {props.movie.genres[0]}
           </p>
-          <PrimaryAction href="/movies/movie" height={2.4}>
+          <p>{limitString(props.movie.description, 26)}</p>
+          <PrimaryAction href={`/movies/${props.movie.slug}`} height={2.4}>
             Explore
           </PrimaryAction>
         </div>
       </div>
-      <img src="/poster.webp" alt="poster" />
+      <img src={getPosterUri(props.movie.poster)} alt="poster" />
     </div>
   )
 }

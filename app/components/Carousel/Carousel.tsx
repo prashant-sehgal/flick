@@ -4,15 +4,30 @@ import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Slide from './Slide'
 import Loading from '@/app/components/Loading/Loading'
+import Movie from '@/app/types/Movie'
 
 export default function Carousel() {
-  const [movies, setMovies] = useState<number | undefined>(undefined)
+  const [movies, setMovies] = useState<Movie[] | undefined>(undefined)
 
-  useEffect(function () {
-    setTimeout(function () {
-      setMovies(1)
-    }, 1000)
-  }, [])
+  useEffect(
+    function () {
+      async function fetchFeaturesMovies() {
+        try {
+          const response = await (
+            await fetch(
+              `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?featured=true`
+            )
+          ).json()
+
+          if (response.status === 'success') setMovies(response.data.documents)
+        } catch (error: any) {
+          throw new Error(error.message)
+        }
+      }
+      fetchFeaturesMovies()
+    },
+    [setMovies]
+  )
 
   if (!movies) return <Loading width="100%" height="80vh" />
 
@@ -30,30 +45,11 @@ export default function Carousel() {
       }}
       slidesPerView={1}
     >
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Slide />
-      </SwiperSlide>
+      {movies.map((movie) => (
+        <SwiperSlide key={movie._id}>
+          <Slide movie={movie} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   )
 }

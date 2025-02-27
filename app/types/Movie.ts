@@ -7,6 +7,7 @@ export default interface Movie {
   genres: string[]
   releasedYear: number
   card: string
+  slug: string
   poster: string
   media: string
 }
