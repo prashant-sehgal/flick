@@ -53,6 +53,7 @@ const authOptions: AuthOptions = {
         secure: process.env.NODE_ENV === 'production', // Secure in production
         sameSite: 'none',
         path: '/',
+        domain: 'render.com',
       },
     },
   },
