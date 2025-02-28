@@ -15,7 +15,8 @@ export default function Carousel() {
         try {
           const response = await (
             await fetch(
-              `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?featured=true`
+              `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?featured=true`,
+              { credentials: 'include' }
             )
           ).json()
 
