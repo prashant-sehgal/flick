@@ -39,6 +39,7 @@ export default function page(props: Readonly<Props>) {
       <MediaPlayer
         title={capatalize(movie?.title || '')}
         src={`${process.env.NEXT_PUBLIC_API_URI}/api/v1/streams/${movie?.media}`}
+        typeof="video/mp4"
         autoPlay={true}
       >
         <MediaProvider />
