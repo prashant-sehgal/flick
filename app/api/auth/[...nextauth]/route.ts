@@ -45,6 +45,17 @@ const authOptions: AuthOptions = {
       return params.token
     },
   },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        sameSite: 'none',
+        path: '/',
+      },
+    },
+  },
 }
 
 const handler = NextAuth(authOptions)
