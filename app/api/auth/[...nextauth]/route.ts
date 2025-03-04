@@ -47,12 +47,13 @@ const authOptions: AuthOptions = {
   },
   cookies: {
     sessionToken: {
-      name: `__Secure-next-auth.session-token`,
+      name: `next-auth.session-token`,
       options: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
-        sameSite: 'none',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         path: '/',
+        domain: 'railway.app',
       },
     },
   },
