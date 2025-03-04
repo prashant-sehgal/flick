@@ -50,10 +50,10 @@ const authOptions: AuthOptions = {
       name: `next-auth.session-token`,
       options: {
         secure: process.env.NODE_ENV === 'production',
-        httpOnly: true,
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        domain: process.env.DOMAIN,
+        httpOnly: true,
         path: '/',
-        domain: 'railway.app',
       },
     },
   },
