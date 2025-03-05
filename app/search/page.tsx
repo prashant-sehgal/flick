@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import styles from './page.module.css'
 import SearchForm from './SearchForm'
 import Filters from './Filters'
@@ -7,9 +7,16 @@ import MovieListView from '../components/MovieListView/MovieListView'
 import { useMovies } from '../contexts/MovieContext'
 import Movie from '../types/Movie'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { errorToJSON } from 'next/dist/server/render'
 
 export default function page() {
+  return (
+    <Suspense>
+      <Search />
+    </Suspense>
+  )
+}
+
+function Search() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [query, setQuery] = useState('')
