@@ -10,12 +10,17 @@ export default function SearchForm(props: Readonly<Props>) {
   const [input, setInput] = useState('')
   const inputElement = useRef<HTMLInputElement>()
 
+  function onSubmitForm(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    props.onSubmitForm(input)
+  }
+
   useEffect(function () {
     if (inputElement) inputElement.current?.focus()
   }, [])
 
   return (
-    <form action="">
+    <form onSubmit={onSubmitForm}>
       <Link href="/">
         <i className="ri-arrow-left-s-line"></i>
       </Link>

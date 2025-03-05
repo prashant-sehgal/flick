@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useReducer } from 'react'
 import Movie from '@/app/types/Movie'
 
 interface MoviesContextType {
+  movies: Movie[] | undefined
   featuredMovies: Movie[] | undefined
   latestMovies: Movie[] | undefined
   topRatedMovies: Movie[] | undefined
@@ -12,10 +13,12 @@ interface MoviesContextType {
   sciFiMovies: Movie[] | undefined
   adventureMovies: Movie[] | undefined
   fantasyMovies: Movie[] | undefined
+  searchMovies?: (movies: Movie[], query: string) => Movie[]
 }
 
 const MoviesContext = createContext<MoviesContextType | undefined>(undefined)
 const initialState: MoviesContextType = {
+  movies: undefined,
   featuredMovies: undefined,
   latestMovies: undefined,
   topRatedMovies: undefined,
@@ -25,6 +28,20 @@ const initialState: MoviesContextType = {
   sciFiMovies: undefined,
   adventureMovies: undefined,
   fantasyMovies: undefined,
+  searchMovies: function (movies: Movie[], query: string): Movie[] {
+    if (!query.trim() || !movies) return []
+
+    const keywords = query.toLowerCase().split(/\s+/)
+
+    return movies.filter((movie) => {
+      const title = movie.title.toLowerCase()
+      const description = movie.description.toLowerCase()
+
+      return keywords.some(
+        (keyword) => title.includes(keyword) || description.includes(keyword)
+      )
+    })
+  },
 }
 
 function reducer(
@@ -35,6 +52,7 @@ function reducer(
     case 'SET_MOVIES':
       return {
         ...state,
+        movies: action.payload,
         featuredMovies: action.payload.filter((movie) => movie.featured),
         latestMovies: [...action.payload].sort(
           (a, b) => b.releasedYear - a.releasedYear

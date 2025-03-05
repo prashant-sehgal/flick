@@ -28,9 +28,14 @@ export default function MovieListView(props: Readonly<Props>) {
 
   return (
     <div className={styles.movieListView} style={style}>
-      {!props.movies ? (
-        <Loading height={300} />
-      ) : (
+      {!props.movies && <Loading height={300} />}
+      {props.movies && props.movies.length === 0 && (
+        <>
+          <p className={styles.title}>{props.title}</p>
+          <p className={styles.noMovies}>No movies found</p>
+        </>
+      )}
+      {props.movies && props.movies.length > 0 && (
         <>
           <p>{props.title}</p>
           <SliderProvider>

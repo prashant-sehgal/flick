@@ -5,7 +5,12 @@
   /* margin: 1rem; */
 }
 
-.movieListView p {
+.movieListView .title {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.movieListView .noMovies {
+  text-align: center;
+  color: var(--background-light-color);
 }

@@ -8,7 +8,7 @@ export default function Filters() {
       <Link href="?genre=action">Action</Link>
       <Link href="?genre=adventure">Adventure</Link>
       <Link href="?genre=sci-fi">Sci Fi</Link>
-      <Link href="?genre=comdey">Comedy</Link>
+      <Link href="?genre=comedy">Comedy</Link>
       <Link href="?genre=fantasy">Fantasy</Link>
       <Link href="?genre=drama">Drama</Link>
     </div>
