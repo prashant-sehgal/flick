@@ -14,29 +14,29 @@ interface Props {
 }
 
 export default function MovieListView(props: Readonly<Props>) {
-  const [isLoading, setIsLoading] = useState(true)
+  // const [isLoading, setIsLoading] = useState(true)
 
   const style: React.CSSProperties = {
     padding: props.spacing ? '1rem' : '0',
   }
 
-  useEffect(function () {
-    setTimeout(function () {
-      setIsLoading(false)
-    }, 1000)
-  }, [])
+  // useEffect(function () {
+  //   setTimeout(function () {
+  //     setIsLoading(false)
+  //   }, 1000)
+  // }, [])
 
   return (
     <div className={styles.movieListView} style={style}>
-      {isLoading ? (
+      {!props.movies ? (
         <Loading height={300} />
       ) : (
         <>
           <p>{props.title}</p>
           <SliderProvider>
-            {Array.from({ length: 10 }).map((e, i) => (
-              <SwiperSlide key={i}>
-                <MovieCard />
+            {props.movies.map((movie) => (
+              <SwiperSlide key={movie._id}>
+                <MovieCard movie={movie} />
               </SwiperSlide>
             ))}
           </SliderProvider>
