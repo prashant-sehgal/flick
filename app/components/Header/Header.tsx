@@ -4,6 +4,7 @@ import styles from './Header.module.css'
 import NavList from './NavList'
 import NavLink from './NavLink'
 import User from './User'
+import WatchlistLink from './WatchlistLink'
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
       <NavList>
         <NavLink href="/movies">Movies</NavLink>
         <NavLink href="/shows">TV Shows</NavLink>
-        <NavLink href="/watchlist">Watchlist</NavLink>
+        <WatchlistLink />
         <NavLink href="/search" classname={styles.search}>
           <i className="ri-search-2-line"></i>
         </NavLink>

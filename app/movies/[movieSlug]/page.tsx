@@ -8,6 +8,7 @@ import Movie from '@/app/types/Movie'
 import Loading from '@/app/components/Loading/Loading'
 import formatDuration from '@/app/utils/formatDuration'
 import getPosterUri from '@/app/utils/getPosterUri'
+import { signIn, useSession } from 'next-auth/react'
 
 interface Props {
   params: { movieSlug: string }
@@ -15,6 +16,7 @@ interface Props {
 
 export default function page(props: Readonly<Props>) {
   const [movie, setMovie] = useState<Movie | undefined>()
+  const { data: session } = useSession()
 
   useEffect(function () {
     async function fetchMovie() {
@@ -53,12 +55,28 @@ export default function page(props: Readonly<Props>) {
         <p>{movie.description}</p>
         <IMDb ratings={movie.imdbRating} />
         <div className={styles.actions}>
-          <PrimaryAction href={`/player/${movie.slug}`} height={3} fontSize={1}>
-            Play Now
-          </PrimaryAction>
-          <PrimaryAction href="/player/movie" height={3} fontSize={1}>
-            Add To Watchlist
-          </PrimaryAction>
+          {session && session.user ? (
+            <>
+              <PrimaryAction
+                href={`/player/${movie.slug}`}
+                height={3}
+                fontSize={1}
+              >
+                Play Now
+              </PrimaryAction>
+              <PrimaryAction href="/player/movie" height={3} fontSize={1}>
+                Add To Watchlist
+              </PrimaryAction>
+            </>
+          ) : (
+            <PrimaryAction
+              onPress={() => signIn('google')}
+              height={3}
+              fontSize={1}
+            >
+              Unlock the Show - Sign In
+            </PrimaryAction>
+          )}
         </div>
       </div>
     </Layout>
