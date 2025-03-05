@@ -6,6 +6,7 @@ export default interface Movie {
   imdbRating: number
   genres: string[]
   releasedYear: number
+  featured: boolean
   card: string
   slug: string
   poster: string
