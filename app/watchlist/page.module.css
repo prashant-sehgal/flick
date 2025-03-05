@@ -4,3 +4,9 @@
   padding: 1rem;
   flex-wrap: wrap;
 }
+
+.message {
+  color: var(--background-light-color);
+  text-align: center;
+  width: 100%;
+}

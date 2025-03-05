@@ -9,9 +9,16 @@ export default function page() {
 
   return (
     <div className={styles.page}>
-      {watchlist.map((movie, i) => (
-        <MovieCard movie={movie} width={8} key={movie._id} />
-      ))}
+      {watchlist.length === 0 ? (
+        <p className={styles.message}>
+          Your watchlist is empty. Start adding movies to keep track of what to
+          watch next!
+        </p>
+      ) : (
+        watchlist.map((movie, i) => (
+          <MovieCard movie={movie} width={8} key={movie._id} />
+        ))
+      )}
     </div>
   )
 }
