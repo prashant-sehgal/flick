@@ -54,12 +54,12 @@ function reducer(
         ...state,
         movies: action.payload,
         featuredMovies: action.payload.filter((movie) => movie.featured),
-        latestMovies: [...action.payload].sort(
-          (a, b) => b.releasedYear - a.releasedYear
-        ),
-        topRatedMovies: [...action.payload].sort(
-          (a, b) => b.imdbRating - a.imdbRating
-        ),
+        latestMovies: [...action.payload]
+          .sort((a, b) => b.releasedYear - a.releasedYear)
+          .slice(0, 10),
+        topRatedMovies: [...action.payload]
+          .sort((a, b) => b.imdbRating - a.imdbRating)
+          .slice(0, 10),
         actionMovies: action.payload.filter(
           (movie) => movie.genres[0].toLowerCase() === 'action'
         ),
