@@ -32,6 +32,9 @@ export const metadata: Metadata = {
   title: 'Flick - Discover, Watch & Enjoy Movies & Shows',
   description:
     'Flick - Your ultimate destination for streaming movies and TV shows. Discover, watch, and enjoy a world of entertainment anytime, anywhere!',
+  icons: {
+    icon: '/fav.ico',
+  },
 }
 
 export default function RootLayout({
