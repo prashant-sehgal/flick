@@ -1,59 +1,26 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './page.module.css'
 import Layout from './Layout'
 import IMDb from './IMDb'
-import PrimaryAction from '@/app/components/PrimaryAction/PrimaryAction'
 import Movie from '@/app/types/Movie'
-import Loading from '@/app/components/Loading/Loading'
 import formatDuration from '@/app/utils/formatDuration'
 import getPosterUri from '@/app/utils/getPosterUri'
-import { signIn, useSession } from 'next-auth/react'
-import { useWatchlist } from '@/app/contexts/WatchlistContext'
+import Actions from './Actions'
 
 interface Props {
   params: { movieSlug: string }
 }
 
-export default function page(props: Readonly<Props>) {
-  const [movie, setMovie] = useState<Movie | undefined>()
-  const [isWatchlisted, setIsWatchlisted] = useState(false)
-  const { data: session } = useSession()
-  const { watchlist, updateWatchlist } = useWatchlist()
+export default async function page(props: Readonly<Props>) {
+  const response = await (
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?slug=${props.params.movieSlug}`
+    )
+  ).json()
 
-  useEffect(
-    function () {
-      async function fetchMovie() {
-        try {
-          const response = await (
-            await fetch(
-              `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?slug=${props.params.movieSlug}`
-            )
-          ).json()
+  if (response.status !== 'success') throw new Error('something went wrong')
 
-          if (response.status === 'success')
-            setMovie(response.data.documents[0])
-        } catch (error: any) {
-          throw new Error(error.message)
-        }
-      }
-      fetchMovie()
-    },
-    [setMovie]
-  )
-
-  useEffect(
-    function () {
-      if (!movie) return
-
-      setIsWatchlisted(
-        Boolean(watchlist.filter((movieEl) => movieEl._id === movie._id).length)
-      )
-    },
-    [movie, watchlist]
-  )
-
-  if (!movie) return <Loading height="100vh" />
+  const movie: Movie = response.data.documents[0]
 
   return (
     <Layout backgroundImage={getPosterUri(movie.poster)}>
@@ -72,7 +39,8 @@ export default function page(props: Readonly<Props>) {
         </p>
         <p>{movie.description}</p>
         <IMDb ratings={movie.imdbRating} />
-        <div className={styles.actions}>
+        <Actions movie={movie} />
+        {/* <div className={styles.actions}>
           {session && session.user ? (
             <>
               <PrimaryAction
@@ -113,7 +81,7 @@ export default function page(props: Readonly<Props>) {
               Unlock the Show - Sign In
             </PrimaryAction>
           )}
-        </div>
+        </div> */}
       </div>
     </Layout>
   )
