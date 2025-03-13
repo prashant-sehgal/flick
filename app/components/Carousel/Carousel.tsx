@@ -1,56 +1,25 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import { Autoplay, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Slide from './Slide'
-import Loading from '@/app/components/Loading/Loading'
+import React from 'react'
 import Movie from '@/app/types/Movie'
+import Slide from './Slide'
+import Slider from './Slider'
 
-export default function Carousel() {
-  const [movies, setMovies] = useState<Movie[] | undefined>(undefined)
+export default async function Carousel() {
+  const response = await (
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?featured=true`,
+      { credentials: 'include' }
+    )
+  ).json()
 
-  useEffect(
-    function () {
-      async function fetchFeaturesMovies() {
-        try {
-          const response = await (
-            await fetch(
-              `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?featured=true`,
-              { credentials: 'include' }
-            )
-          ).json()
+  if (response.status !== 'success') throw new Error('Something went wrong')
 
-          if (response.status === 'success') setMovies(response.data.documents)
-        } catch (error: any) {
-          throw new Error(error.message)
-        }
-      }
-      fetchFeaturesMovies()
-    },
-    [setMovies]
-  )
-
-  if (!movies) return <Loading width="100%" height="80vh" />
+  const movies: Movie[] = response.data.documents
 
   return (
-    <Swiper
-      modules={[Pagination, Autoplay]}
-      pagination={{
-        clickable: true,
-        dynamicBullets: true,
-        dynamicMainBullets: 4,
-      }}
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-      slidesPerView={1}
-    >
+    <Slider>
       {movies.map((movie) => (
-        <SwiperSlide key={movie._id}>
-          <Slide movie={movie} />
-        </SwiperSlide>
+        <Slide movie={movie} key={movie._id} />
       ))}
-    </Swiper>
+    </Slider>
   )
 }
