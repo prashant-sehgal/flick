@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './MovieListView.module.css'
 import MovieCard from '../MovieCard/MovieCard'
 import SliderProvider from './SliderProvider'
+import Loading from '../Loading/Loading'
 
 interface Props {
   title: string
@@ -18,11 +19,15 @@ export default function MovieListView(props: Readonly<Props>) {
   return (
     <div className={styles.movieListView} style={style}>
       <h3>{props.title}</h3>
-      <SliderProvider>
-        {props.movies.map((movie) => (
-          <MovieCard movie={movie} key={movie._id} />
-        ))}
-      </SliderProvider>
+      {props.movies.length ? (
+        <SliderProvider>
+          {props.movies.map((movie) => (
+            <MovieCard movie={movie} key={movie._id} />
+          ))}
+        </SliderProvider>
+      ) : (
+        <Loading height={265} />
+      )}
     </div>
   )
 }
