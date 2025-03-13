@@ -3,11 +3,9 @@ import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import SearchForm from './SearchForm'
 import Filters from './Filters'
-import FeaturedMovies from '../components/FeaturedMovies/FeaturedMovies'
 import { useMovies } from '../contexts/MovieContext'
 import MovieListView from '../components/MovieListView/MovieListView'
 import Movie from '../types/Movie'
-import { useSearchParams } from 'next/navigation'
 
 export default function page() {
   const {
@@ -21,7 +19,6 @@ export default function page() {
     comedyMovies,
     fantasyMovies,
   } = useMovies()
-  const searchParams = useSearchParams()
   const [query, setQuery] = useState('')
   const [searchResults, setSearchResults] = useState<Movie[]>()
   const [genre, setGenre] = useState('')
@@ -66,13 +63,6 @@ export default function page() {
       }
     },
     [genre]
-  )
-
-  useEffect(
-    function () {
-      setGenre(searchParams.get('genre') || '')
-    },
-    [searchParams]
   )
 
   return (
