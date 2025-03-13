@@ -1,22 +1,21 @@
 import Link from 'next/link'
-import React, { useEffect, useReducer, useRef, useState } from 'react'
-import styles from './page.module.css'
+import React, { useEffect, useRef, useState } from 'react'
 
 interface Props {
-  onSubmitForm: (query: string) => void
+  setter: (value: string) => void
 }
 
 export default function SearchForm(props: Readonly<Props>) {
   const [input, setInput] = useState('')
-  const inputElement = useRef<HTMLInputElement>()
+  const inputElement = useRef<HTMLInputElement>(null)
 
   function onSubmitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    props.onSubmitForm(input)
+    props.setter(input)
   }
 
   useEffect(function () {
-    if (inputElement) inputElement.current?.focus()
+    inputElement.current?.focus()
   }, [])
 
   return (
@@ -25,10 +24,10 @@ export default function SearchForm(props: Readonly<Props>) {
         <i className="ri-arrow-left-s-line"></i>
       </Link>
       <input
-        ref={inputElement! as React.LegacyRef<HTMLInputElement>}
+        ref={inputElement}
         type="text"
-        value={input}
         placeholder="Search for movies, shows, genres, or actors and start your next streaming adventure!"
+        value={input}
         onChange={(event) => setInput(event.target.value)}
       />
     </form>

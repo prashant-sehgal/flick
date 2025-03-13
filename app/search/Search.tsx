@@ -17,6 +17,7 @@ export default function Search() {
 }
 
 function SearchPage() {
+  'use client'
   const searchParams = useSearchParams()
   const router = useRouter()
   const [query, setQuery] = useState('')
