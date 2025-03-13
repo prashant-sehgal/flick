@@ -9,6 +9,12 @@
   z-index: 99;
 }
 
+.header .brandAnchor {
+  font-size: 1.8rem;
+  color: #fff;
+  font-family: var(--font-archivo-black);
+}
+
 .header .navlist {
   display: flex;
   align-items: center;

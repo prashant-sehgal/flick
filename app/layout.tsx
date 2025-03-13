@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Open_Sans } from 'next/font/google'
+import { Archivo_Black, Open_Sans } from 'next/font/google'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import './globals.css'
@@ -28,6 +28,12 @@ const openSans = Open_Sans({
   variable: '--font-open-sans',
 })
 
+const archivoBlack = Archivo_Black({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-archivo-black',
+})
+
 export const metadata: Metadata = {
   title: 'Flick - Discover, Watch & Enjoy Movies & Shows',
   description:
@@ -44,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={openSans.variable}>
+      <body className={`${openSans.variable} ${archivoBlack.variable}`}>
         <AuthProvider>
           <MoviesProvider>
             <WatchlistProvider>
