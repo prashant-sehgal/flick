@@ -1,10 +1,11 @@
+'use client'
 import useLayout from '@/app/hooks/useLayout'
 import React from 'react'
 import { Navigation } from 'swiper/modules'
-import { Swiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode[]
 }
 
 export default function SliderProvider(props: Readonly<Props>) {
@@ -31,7 +32,9 @@ export default function SliderProvider(props: Readonly<Props>) {
           },
         }}
       >
-        {props.children}
+        {props.children.map((child, i) => (
+          <SwiperSlide key={i}>{child}</SwiperSlide>
+        ))}
       </Swiper>
     </div>
   )

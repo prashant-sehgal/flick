@@ -7,6 +7,7 @@ import MovieListView from '../components/MovieListView/MovieListView'
 import { useMovies } from '../contexts/MovieContext'
 import Movie from '../types/Movie'
 import { useSearchParams, useRouter } from 'next/navigation'
+import FeaturedMovies from '../components/FeaturedMovies/FeaturedMovies'
 
 export default function page() {
   return (
@@ -88,11 +89,11 @@ function Search() {
       <SearchForm onSubmitForm={onSubmitForm} />
       <Filters />
       <div className={styles.moviesCotnainer}>
-        {searchResults && (
+        {/* {searchResults && (
           <MovieListView title="Results" movies={searchResults} />
-        )}
+        )} */}
 
-        <MovieListView title="You May Also Like" movies={featuredMovies} />
+        {/* <FeaturedMovies /> */}
       </div>
     </div>
   )
