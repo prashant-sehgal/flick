@@ -21,10 +21,10 @@ export default function page() {
         movies={actionMovies || []}
       />
       <MovieListView title="Sci-Fi Spectacles" movies={sciFiMovies || []} />
-      <MovieListView title="Comedy Gold" movies={comedyMovies || []} />
-      <MovieListView title="Adventure Awaits" movies={adventureMovies || []} />
       <MovieListView title="Enchanted Realms" movies={fantasyMovies || []} />
       <MovieListView title="Dramatic Masterpieces" movies={dramaMovies || []} />
+      <MovieListView title="Adventure Awaits" movies={adventureMovies || []} />
+      <MovieListView title="Comedy Gold" movies={comedyMovies || []} />
     </div>
   )
 }
