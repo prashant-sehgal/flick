@@ -51,7 +51,7 @@ const authOptions: AuthOptions = {
       options: {
         secure: process.env.NODE_ENV === 'production',
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        // domain: process.env.DOMAIN,
+        domain: process.env.DOMAIN,
         httpOnly: true,
         path: '/',
       },
