@@ -45,18 +45,18 @@ const authOptions: AuthOptions = {
       return params.token
     },
   },
-  cookies: {
-    sessionToken: {
-      name: `next-auth.session-token`,
-      options: {
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        domain: process.env.DOMAIN,
-        httpOnly: true,
-        path: '/',
-      },
-    },
-  },
+  // cookies: {
+  //   sessionToken: {
+  //     name: `next-auth.session-token`,
+  //     options: {
+  //       secure: process.env.NODE_ENV === 'production',
+  //       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  //       domain: process.env.DOMAIN,
+  //       httpOnly: true,
+  //       path: '/',
+  //     },
+  //   },
+  // },
 }
 
 const handler = NextAuth(authOptions)
