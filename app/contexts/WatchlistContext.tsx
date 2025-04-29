@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react'
 import Movie from '../types/Movie'
+import { useSession } from 'next-auth/react'
 
 interface WatchlistContextType {
   watchlist: Movie[]
@@ -22,26 +23,32 @@ export default function WatchlistProvider(props: {
   children: React.ReactNode
 }) {
   const [watchlist, setWatchlist] = useState<Movie[]>([])
+  const { data: session } = useSession()
 
-  useEffect(function () {
-    async function fetchWatchlist() {
-      try {
-        const response = await (
-          await fetch(
-            `${process.env.NEXT_PUBLIC_API_URI}/api/v1/users/watchlist`,
-            {
-              credentials: 'include',
-            }
-          )
-        ).json()
+  useEffect(
+    function () {
+      async function fetchWatchlist() {
+        try {
+          const response = await (
+            await fetch(
+              `${process.env.NEXT_PUBLIC_API_URI}/api/v1/users/watchlist`,
+              {
+                credentials: 'include',
+              }
+            )
+          ).json()
 
-        if (response.status === 'success') setWatchlist(response.data.watchlist)
-      } catch (error: any) {
-        throw new Error(error.message)
+          if (response.status === 'success')
+            setWatchlist(response.data.watchlist)
+        } catch (error: any) {
+          throw new Error(error.message)
+        }
       }
-    }
-    fetchWatchlist()
-  }, [])
+
+      if (session?.user) fetchWatchlist()
+    },
+    [session]
+  )
 
   async function updateWatchlistDB(movie: Movie, method: 'add' | 'remove') {
     try {

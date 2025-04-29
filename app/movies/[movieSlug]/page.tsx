@@ -6,6 +6,7 @@ import Movie from '@/app/types/Movie'
 import formatDuration from '@/app/utils/formatDuration'
 import getPosterUri from '@/app/utils/getPosterUri'
 import Actions from './Actions'
+import Loading from '@/app/components/Loading/Loading'
 
 interface Props {
   params: { movieSlug: string }
@@ -14,11 +15,10 @@ interface Props {
 export default async function page(props: Readonly<Props>) {
   const response = await (
     await fetch(
-      `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?slug=${props.params.movieSlug}`
+      `${process.env.NEXT_PUBLIC_API_URI}/api/v1/movies?slug=${props.params.movieSlug}`,
+      { cache: 'no-store' }
     )
   ).json()
-
-  if (response.status !== 'success') throw new Error('something went wrong')
 
   const movie: Movie = response.data.documents[0]
 
@@ -40,48 +40,6 @@ export default async function page(props: Readonly<Props>) {
         <p>{movie.description}</p>
         <IMDb ratings={movie.imdbRating} />
         <Actions movie={movie} />
-        {/* <div className={styles.actions}>
-          {session && session.user ? (
-            <>
-              <PrimaryAction
-                href={`/player/${movie.slug}`}
-                height={3}
-                fontSize={1}
-              >
-                Play Now
-              </PrimaryAction>
-              {isWatchlisted ? (
-                <PrimaryAction
-                  onPress={() =>
-                    updateWatchlist && updateWatchlist(movie, 'remove')
-                  }
-                  height={3}
-                  fontSize={1}
-                >
-                  Remove from Watchlist
-                </PrimaryAction>
-              ) : (
-                <PrimaryAction
-                  onPress={() =>
-                    updateWatchlist && updateWatchlist(movie, 'add')
-                  }
-                  height={3}
-                  fontSize={1}
-                >
-                  Add to Watchlist
-                </PrimaryAction>
-              )}
-            </>
-          ) : (
-            <PrimaryAction
-              onPress={() => signIn('google')}
-              height={3}
-              fontSize={1}
-            >
-              Unlock the Show - Sign In
-            </PrimaryAction>
-          )}
-        </div> */}
       </div>
     </Layout>
   )
