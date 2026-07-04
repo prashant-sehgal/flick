@@ -1,4 +1,4 @@
-# ![Flick Logo](public/fav.ico) Flick - OTT Streaming Platform (Frontend)
+# ![Flick Logo](public/favicon.ico) Flick - OTT Streaming Platform (Frontend)
 
 🚀 **Flick** is a modern OTT streaming platform built with **Next.js 14**, offering a seamless and immersive movie-watching experience. This repository contains the frontend code for Flick, designed for performance, responsiveness, and an intuitive UI.
 
