@@ -2,9 +2,6 @@
 
 🚀 **Flick** is a modern OTT streaming platform built with **Next.js 14**, offering a seamless and immersive movie-watching experience. This repository contains the frontend code for Flick, designed for performance, responsiveness, and an intuitive UI.
 
-## 🌐 Live Demo
-Check out Flick in action: **[https://flick-watch.azurewebsites.net/](https://flick-watch.azurewebsites.net/)**
-
 ## 🛠️ Tech Stack
 - **Framework:** Next.js 14 (App Router)
 - **State Management:** React Context API
